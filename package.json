@@ -35,9 +35,9 @@
     "webpack-dev-server": "^2.9.4"
   },
   "scripts": {
-    "build": "webpack -p",
+    "build": "NODE_ENV=production webpack -p",
     "watch": "webpack --watch",
-    "dev": "webpack-dev-server --port=8081"
+    "dev": "NODE_ENV=development webpack-dev-server --port=8081"
   },
   "author": "Igor Usoltsev",
   "license": "ISC"
