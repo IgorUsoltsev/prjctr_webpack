@@ -6,4 +6,4 @@ Steps required to run this course:
 2. Install NodeJS - `https://nodejs.org/en/`
 3. Install Webpack and other modules from the project folder - `npm install`
 4. Run `npm run build` to compile scripts.
-4. Check `webpack.config.js` - powerful tool
+5. Check `webpack.config.js` - powerful tool
