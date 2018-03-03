@@ -42,6 +42,33 @@ plugins.push(new webpack.ProvidePlugin({
   Popper: ['popper.js', 'default'],
 }));
 plugins.push(new CleanWebpackPlugin(['dist']));    
+//Separate vendors from main logic
+plugins.concat(
+  [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      chunks: 'main',
+  
+      minChunks: module => module.context &&
+        module.context.includes('node_modules'),
+    }),
+  ,
+    // Runtime goes into last chunk, so move it out of main bundle for proper caching
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'runtime',
+      chunks: 'main',
+  
+      // minChunks: Infinity means that no app modules will be included into this chunk
+      minChunks: Infinity,
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      // A name of the chunk that will include the common dependencies
+      name: 'common',
+      chunks: 'main',
+      minChunks: 2,    // 2 is the default value
+    }),
+  ]
+);
 plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
 //Chunk ids replace with unique hash
 plugins.push(new webpack.HashedModuleIdsPlugin());    

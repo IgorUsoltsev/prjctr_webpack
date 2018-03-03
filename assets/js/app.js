@@ -1,4 +1,5 @@
 import test from './test';
+//old syntax - var module = require( './assets/js/app/image.js' );
 import constant from './constants';
 import testImg from './image';
 import testImg2 from './image2';
@@ -16,6 +17,7 @@ var es6Message = () => (
 document.getElementById('app').innerHTML = es6Message();
 
 console.log("Hello world from " + constant.name);
+console.log('test');
 
 //Bootstrap thing
 import 'bootstrap';
