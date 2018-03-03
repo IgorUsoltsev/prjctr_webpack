@@ -165,7 +165,7 @@ module.exports = {
   },
   output: { // Where to place generated script
     filename: PRODUCTION ? '[name].[hash:12].min.js' : 'bundle-[name].js',
-    publicPath: PRODUCTION ? '/dist/' : '/dist/', // Specify public folder for webpack-dev-server
+    publicPath: PRODUCTION ? '/' : '/dist/', // Specify public folder for webpack-dev-server
     path: path.resolve(__dirname, 'dist')
   },
   module: {
